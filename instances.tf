@@ -34,7 +34,7 @@ resource "aws_instance" "puppet" {
       type        = "ssh"
       user        = "ubuntu"
       host        = aws_instance.puppet.public_ip
-      private_key = file("~/.ssh/terraform")
+      private_key = file("terraform")
     }
 
     inline = [
@@ -54,7 +54,7 @@ resource "aws_instance" "puppet" {
       type        = "ssh"
       user        = "ubuntu"
       host        = aws_instance.puppet.public_ip
-      private_key = file("~/.ssh/terraform")
+      private_key = file("terraform")
     }
 
     source      = "conf/puppet/code/environments"
@@ -91,7 +91,7 @@ resource "aws_instance" "ca" {
       type        = "ssh"
       user        = "ubuntu"
       host        = aws_instance.ca.public_ip
-      private_key = file("~/.ssh/terraform")
+      private_key = file("terraform")
     }
 
     inline = [
@@ -113,7 +113,7 @@ resource "aws_instance" "ca" {
       type        = "ssh"
       user        = "ubuntu"
       host        = aws_instance.puppet.public_ip
-      private_key = file("~/.ssh/terraform")
+      private_key = file("terraform")
     }
     inline = [
       "sudo rm /var/lib/puppet/ssl/ca/signed/ca.emojivoto.local.pem"
@@ -157,7 +157,7 @@ resource "aws_instance" "web" {
       type        = "ssh"
       user        = "ubuntu"
       host        = aws_instance.web.public_ip
-      private_key = file("~/.ssh/terraform")
+      private_key = file("terraform")
     }
 
     inline = [
@@ -179,7 +179,7 @@ resource "aws_instance" "web" {
       type        = "ssh"
       user        = "ubuntu"
       host        = aws_instance.puppet.public_ip
-      private_key = file("~/.ssh/terraform")
+      private_key = file("terraform")
     }
     inline = [
       "sudo rm /var/lib/puppet/ssl/ca/signed/web.emojivoto.local.pem"
@@ -216,7 +216,7 @@ resource "aws_instance" "emoji" {
       type        = "ssh"
       user        = "ubuntu"
       host        = aws_instance.emoji.public_ip
-      private_key = file("~/.ssh/terraform")
+      private_key = file("terraform")
     }
 
     inline = [
@@ -238,7 +238,7 @@ resource "aws_instance" "emoji" {
       type        = "ssh"
       user        = "ubuntu"
       host        = aws_instance.puppet.public_ip
-      private_key = file("~/.ssh/terraform")
+      private_key = file("terraform")
     }
     inline = [
       "sudo rm /var/lib/puppet/ssl/ca/signed/emoji.emojivoto.local.pem"
@@ -275,7 +275,7 @@ resource "aws_instance" "voting" {
       type        = "ssh"
       user        = "ubuntu"
       host        = aws_instance.voting.public_ip
-      private_key = file("~/.ssh/terraform")
+      private_key = file("terraform")
     }
 
     inline = [
@@ -297,7 +297,7 @@ resource "aws_instance" "voting" {
       type        = "ssh"
       user        = "ubuntu"
       host        = aws_instance.puppet.public_ip
-      private_key = file("~/.ssh/terraform")
+      private_key = file("terraform")
     }
     inline = [
       "sudo rm /var/lib/puppet/ssl/ca/signed/voting.emojivoto.local.pem"
