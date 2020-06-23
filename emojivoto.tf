@@ -22,7 +22,7 @@ resource "aws_key_pair" "terraform" {
 
 variable "ami" {
   type    = string
-  default = "ami-068670db424b01e9a"
+  default = "ami-02ad37ec9b98d835f"
 }
 
 variable "key_name" {
