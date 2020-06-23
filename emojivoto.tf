@@ -11,9 +11,7 @@ terraform {
 
 # Define the provider that we are going to use
 provider "aws" {
-  region     = "us-east-1"
-  access_key = var.AWS_ACCESS_KEY_ID
-  secret_key = var.AWS_SECRET_ACCESS_KEY
+  region = "us-east-1"
 }
 
 # Create an SSH key pair to connect to our instances
@@ -21,12 +19,7 @@ resource "aws_key_pair" "terraform" {
   key_name   = "terraform-key"
   public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQC7YNXWbeBVIkF8jtgtyg9UZPVYYXUTiFvfvk/q8GSroV3ITesNi0s7Hpq/GDuudNlGMZ2YruLG1pw8yJ+uBAd36W1EWJgd2FP1f0tMoqALiTC2pMvxbs2F/7Q3XxPOAS2RjndZvkemiTIl5g1qn0LdI2LO1kEPJAcUxNX3mwLMB06Ja5vg43qXaSc6xfYIeqFJhWYLaVTKOECUydK2WHVfwn5cBJU2bhu5ACUGoXSM+DWqFiM1BndrBG+7+5KxfLKFDG079dOOCvE6wsyJ7Gik46dcn8BzV1Ar356Pf9MtrfNl9y9B6xfr+404h0dG5ek5DbhiMzwW9rQ+VXHr3oqtJPVhK2p+5U9kedoaAxO4gVnjkfyStAlI/VKCcxmRffjli0ddOyabSoXLnVThc7MKBbYZG9ndUwml6m+RTDw7g5UZljQiF+iGcc65UmdhZt88ixZa83DslmRksoPxcltNFSh+VvrOJYOK5rjY015SSUzHBIadnM76lwlbyx32QxJDpzGQNqwQ/dSGtLEsSwXFGMwn+LpcWhx79AOfcRePyg8dl9NrAs5HbFI3ujSf5rZGnzsEh9lYk5E3OCNqrXA29RJ3hmwJijSTtP3JT6gNXkLjvGcFvswJp8B0eF58hf+9KlinmZ8pXLZGBYOj0JiEYeux+PVjwLUQz6/EDr9edQ== mariano@smallstep.com"
 }
-variable "AWS_SECRET_ACCESS_KEY" {
-  type = string
-}
-variable "AWS_ACCESS_KEY_ID" {
-  type = string
-}
+
 variable "ami" {
   type    = string
   default = "ami-068670db424b01e9a"
