@@ -1,9 +1,10 @@
 terraform {
+
   backend "remote" {
     organization = "Smallstep"
 
     workspaces {
-      name = "Emojivoto"
+      name = "step-aws-emojivoto"
     }
   }
 }
