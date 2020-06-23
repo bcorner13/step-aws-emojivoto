@@ -10,8 +10,8 @@ terraform {
 
 # Define the provider that we are going to use
 provider "aws" {
-  profile = "default"
-  region  = "us-west-1"
+  profile = "personal"
+  region  = "us-east-1"
 }
 
 # Create an SSH key pair to connect to our instances

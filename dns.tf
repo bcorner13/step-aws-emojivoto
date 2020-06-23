@@ -1,12 +1,12 @@
 resource "aws_route53_zone" "emojivoto" {
   name = "emojivoto.local"
   vpc {
-    vpc_id = "${aws_vpc.emojivoto.id}"
+    vpc_id = aws_vpc.emojivoto.id
   }
 }
 
 resource "aws_route53_record" "puppet" {
-  zone_id = "${aws_route53_zone.emojivoto.zone_id}"
+  zone_id = aws_route53_zone.emojivoto.zone_id
   name    = "puppet.emojivoto.local"
   type    = "A"
   ttl     = "300"
@@ -14,7 +14,7 @@ resource "aws_route53_record" "puppet" {
 }
 
 resource "aws_route53_record" "ca" {
-  zone_id = "${aws_route53_zone.emojivoto.zone_id}"
+  zone_id = aws_route53_zone.emojivoto.zone_id
   name    = "ca.emojivoto.local"
   type    = "A"
   ttl     = "300"
@@ -22,7 +22,7 @@ resource "aws_route53_record" "ca" {
 }
 
 resource "aws_route53_record" "web" {
-  zone_id = "${aws_route53_zone.emojivoto.zone_id}"
+  zone_id = aws_route53_zone.emojivoto.zone_id
   name    = "web.emojivoto.local"
   type    = "A"
   ttl     = "300"
@@ -30,7 +30,7 @@ resource "aws_route53_record" "web" {
 }
 
 resource "aws_route53_record" "emoji" {
-  zone_id = "${aws_route53_zone.emojivoto.zone_id}"
+  zone_id = aws_route53_zone.emojivoto.zone_id
   name    = "emoji.emojivoto.local"
   type    = "A"
   ttl     = "300"
@@ -38,7 +38,7 @@ resource "aws_route53_record" "emoji" {
 }
 
 resource "aws_route53_record" "voting" {
-  zone_id = "${aws_route53_zone.emojivoto.zone_id}"
+  zone_id = aws_route53_zone.emojivoto.zone_id
   name    = "voting.emojivoto.local"
   type    = "A"
   ttl     = "300"
