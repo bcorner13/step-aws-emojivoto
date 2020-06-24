@@ -1,5 +1,21 @@
+data "aws_ami" "ubuntu" {
+  most_recent = true
+
+  filter {
+    name   = "name"
+    values = ["ubuntu/images/hvm-ssd/ubuntu-bionic-18.04-amd64-server-*"]
+  }
+
+  filter {
+    name   = "virtualization-type"
+    values = ["hvm"]
+  }
+
+  owners = ["679593333241"] # Canonical
+}
+
 resource "aws_instance" "puppet" {
-  ami           = var.ami
+  ami           = data.aws_ami.ubuntu.id
   instance_type = var.instance_type
   key_name      = var.key_name
   depends_on = [
@@ -63,7 +79,7 @@ resource "aws_instance" "puppet" {
 }
 
 resource "aws_instance" "ca" {
-  ami           = var.ami
+  ami           = data.aws_ami.ubuntu.id
   instance_type = var.instance_type
   key_name      = var.key_name
   depends_on = [
@@ -122,7 +138,7 @@ resource "aws_instance" "ca" {
 }
 
 resource "aws_instance" "web" {
-  ami           = var.ami
+  ami           = data.aws_ami.ubuntu.id
   instance_type = var.instance_type
   key_name      = var.key_name
   depends_on = [
@@ -188,7 +204,7 @@ resource "aws_instance" "web" {
 }
 
 resource "aws_instance" "emoji" {
-  ami           = var.ami
+  ami           = data.aws_ami.ubuntu.id
   instance_type = var.instance_type
   key_name      = var.key_name
   depends_on = [
@@ -247,7 +263,7 @@ resource "aws_instance" "emoji" {
 }
 
 resource "aws_instance" "voting" {
-  ami           = var.ami
+  ami           = data.aws_ami.ubuntu.id
   instance_type = var.instance_type
   key_name      = var.key_name
   depends_on = [
